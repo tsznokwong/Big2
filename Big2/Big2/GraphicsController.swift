@@ -635,7 +635,8 @@ class SKOutlinedLabelNode: SKLabelNode {
     
     private func createBorderPathForText() -> CGPath? {
         let chars = getTextAsCharArray()
-        let borderFont = CTFontCreateWithName(self.fontName as CFString?, self.fontSize, nil)
+        guard let fontName = self.fontName else { return nil }
+        let borderFont = CTFontCreateWithName(fontName as CFString, self.fontSize, nil)
         
         var glyphs = Array<CGGlyph>(repeating: 0, count: chars.count)
         let gotGlyphs = CTFontGetGlyphsForCharacters(borderFont, chars, &glyphs, chars.count)

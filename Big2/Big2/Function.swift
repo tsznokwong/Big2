@@ -16,7 +16,7 @@ func randomInt(min: Int, max: Int) -> Int {
 
 func degreeToRadian(degree: Double) -> Double {
     /// Return: radian from degree
-    return degree / 180 * M_PI
+    return degree / 180 * .pi
 }
 
 func == (lhs: Computer, rhs: Computer) -> Bool {
